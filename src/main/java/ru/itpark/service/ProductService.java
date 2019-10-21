@@ -3,9 +3,7 @@ package ru.itpark.service;
 import ru.itpark.model.AbstractProduct;
 import ru.itpark.repository.ProductRepository;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
+import java.util.*;
 
 public class ProductService {
     private final ProductRepository repository;
@@ -16,6 +14,20 @@ public class ProductService {
 
     public ProductRepository getRepository() {
         return repository;
+    }
+
+    public List<AbstractProduct> searchByName(String text) {
+        if (text.length() < 3) {
+            throw new IllegalArgumentException("text must contain at least 3 characters");
+        }
+        List<AbstractProduct> result = new LinkedList<>();
+        for (AbstractProduct item: repository.getAll()) {
+            if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+                result.add(item);
+            }
+        }
+        result.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+        return result;
     }
 
     public void add(Collection<AbstractProduct> items) {
