@@ -10,8 +10,8 @@ public class Computer extends AbstractProduct{
     private int ram;
     private String hdd;
 
-    public Computer(long id, String name, int price, double rating, String cpu, int ram, String hdd) {
-        super(id, name, price, rating);
+    public Computer(String name, int price, double rating, String cpu, int ram, String hdd) {
+        super(0, name, price, rating);
         this.cpu = cpu;
         this.ram = ram;
         this.hdd = hdd;
