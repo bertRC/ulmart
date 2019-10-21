@@ -2,7 +2,6 @@ package ru.itpark;
 
 import ru.itpark.model.AbstractProduct;
 import ru.itpark.model.Computer;
-import ru.itpark.model.Smartphone;
 
 public class Main {
     public static void main(String[] args) {
