@@ -10,8 +10,8 @@ public class TV extends AbstractProduct {
     private String color;
     private String hdFormat;
 
-    public TV(long id, String name, int price, int rating, int diagonal, String color, String hdFormat) {
-        super(id, name, price, rating);
+    public TV(String name, int price, int rating, int diagonal, String color, String hdFormat) {
+        super(0, name, price, rating);
         this.diagonal = diagonal;
         this.color = color;
         this.hdFormat = hdFormat;
