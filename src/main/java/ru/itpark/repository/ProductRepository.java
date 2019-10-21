@@ -4,6 +4,7 @@ import ru.itpark.model.AbstractProduct;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.function.Predicate;
 
 public class ProductRepository {
     private final Collection<AbstractProduct> products = new LinkedList<>();
@@ -12,6 +13,10 @@ public class ProductRepository {
     public void save(AbstractProduct item) {
         item.setId(nextId++);
         products.add(item);
+    }
+
+    public boolean delete(int id) {
+        return products.removeIf(abstractProduct -> abstractProduct.getId() == id);
     }
 
     public Collection<AbstractProduct> getAll() {

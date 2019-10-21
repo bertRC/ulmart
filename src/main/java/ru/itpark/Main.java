@@ -17,6 +17,8 @@ public class Main {
         collection.add(new Computer("Офисный компьютер MXP", 29_990, 0, "Intel Core i3", 8, "1 ТБ"));
         service.add(collection);
 
+        service.getRepository().delete(1);
+
         System.out.println(service.getRepository().getAll());
     }
 }
