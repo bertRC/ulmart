@@ -4,7 +4,6 @@ import ru.itpark.model.AbstractProduct;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.function.Predicate;
 
 public class ProductRepository {
     private final Collection<AbstractProduct> products = new LinkedList<>();
@@ -16,7 +15,18 @@ public class ProductRepository {
     }
 
     public boolean delete(int id) {
-        return products.removeIf(abstractProduct -> abstractProduct.getId() == id);
+        boolean deleted = products.removeIf(abstractProduct -> abstractProduct.getId() == id);
+        if (deleted) {
+            nextId--;
+            if (id < nextId) {
+                for (AbstractProduct product : products) {
+                    if (product.getId() > id) {
+                        product.setId(product.getId() - 1);
+                    }
+                }
+            }
+        }
+        return deleted;
     }
 
     public Collection<AbstractProduct> getAll() {
