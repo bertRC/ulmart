@@ -10,7 +10,7 @@ public class Smartphone extends AbstractProduct {
     private double diagonal;
     private int memoryInGB;
 
-    public Smartphone(String name, int price, double rating, String color, double diagonal, int memoryInGB) {
+    public Smartphone(String name, int price, int rating, String color, double diagonal, int memoryInGB) {
         super(0, name, price, rating);
         this.color = color;
         this.diagonal = diagonal;

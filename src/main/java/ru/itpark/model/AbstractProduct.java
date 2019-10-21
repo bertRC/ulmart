@@ -11,7 +11,7 @@ public abstract class AbstractProduct {
     private long id;
     private String name;
     private int price;
-    private double rating;
+    private int rating;
 
     public abstract boolean match(String productType);
 }
