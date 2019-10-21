@@ -30,6 +30,17 @@ public class ProductService {
         return result;
     }
 
+    public List<AbstractProduct> searchByType(String productType) {
+        List<AbstractProduct> result = new LinkedList<>();
+        for (AbstractProduct item: repository.getAll()) {
+            if (item.match(productType)) {
+                result.add(item);
+            }
+        }
+        result.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+        return result;
+    }
+
     public void add(Collection<AbstractProduct> items) {
         for (AbstractProduct item : items) {
             if (item.getId() != 0) {

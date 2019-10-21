@@ -15,13 +15,14 @@ public class Main {
         Collection<AbstractProduct> collection = new LinkedList<>();
         collection.add(new Smartphone("Смартфон Redmi Note 7", 13_990, 4.0, "blue", 6.3, 32));
         collection.add(new Computer("Нереальный компьютер", 200_000, 0.0, "Эльбрус-4С", 24, "1 ТБ"));
-        collection.add(new Computer("Офисный компьютер MXP", 29_990, 0.0, "Intel Core i3", 8, "1 ТБ"));
+        collection.add(new Computer("аОфисный компьютер MXP", 29_990, 0.0, "Intel Core i3", 8, "1 ТБ"));
         service.add(collection);
 
 //        System.out.println(service.getRepository().getAll());
 //        System.out.println(service.remove(2));
-        System.out.println(service.getRepository().getAll());
+//        System.out.println(service.getRepository().getAll());
 
-        System.out.println(service.searchByName("КОМП"));
+//        System.out.println(service.searchByName("КОМП"));
+        System.out.println(service.searchByType("Computer"));
     }
 }
