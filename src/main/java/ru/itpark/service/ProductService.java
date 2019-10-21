@@ -4,6 +4,7 @@ import ru.itpark.model.AbstractProduct;
 import ru.itpark.repository.ProductRepository;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class ProductService {
     private final ProductRepository repository;
@@ -14,19 +15,6 @@ public class ProductService {
 
     public ProductRepository getRepository() {
         return repository;
-    }
-
-    public void add(AbstractProduct item) {
-        if (item.getId() != 0) {
-            throw new IllegalArgumentException("id must be 0");
-        }
-        if (item.getPrice() <= 0) {
-            throw new IllegalArgumentException("price must be greater than 0");
-        }
-        if (item.getRating() < 0 || item.getRating() > 5) {
-            throw new IllegalArgumentException("rating must be in the range 0 through 5");
-        }
-        repository.save(item);
     }
 
     public void add(Collection<AbstractProduct> items) {
@@ -42,5 +30,13 @@ public class ProductService {
             }
             repository.save(item);
         }
+    }
+
+    public void add(AbstractProduct... items) {
+        Collection<AbstractProduct> products = new LinkedList<>();
+        for (AbstractProduct item : items) {
+            products.add(item);
+        }
+        add(products);
     }
 }
