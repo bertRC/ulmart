@@ -1,11 +1,12 @@
 package ru.itpark;
 
 import ru.itpark.model.AbstractProduct;
+import ru.itpark.model.Computer;
 import ru.itpark.model.Smartphone;
 
 public class Main {
     public static void main(String[] args) {
-        AbstractProduct smartphone = new Smartphone(1, "Смартфон", 5_000, 5.0, "красный", 7.0, 32);
-        System.out.println(smartphone);
+        AbstractProduct product = new Computer(1, "Компьютер", 1_000, 4.9, "i3", 4, "HDD 1ТБ");
+        System.out.println(product);
     }
 }
