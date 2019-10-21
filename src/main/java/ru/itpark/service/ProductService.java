@@ -34,8 +34,7 @@ public class ProductService {
     }
 
     public void add(AbstractProduct... items) {
-        Collection<AbstractProduct> products = new LinkedList<>();
-        products.addAll(Arrays.asList(items));
+        Collection<AbstractProduct> products = new LinkedList<>(Arrays.asList(items));
         add(products);
     }
 }
