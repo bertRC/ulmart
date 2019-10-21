@@ -10,6 +10,10 @@ public class ProductService {
         this.repository = repository;
     }
 
+    public ProductRepository getRepository() {
+        return repository;
+    }
+
     public void add(AbstractProduct item) {
         if (item.getId() != 0) {
             throw new IllegalArgumentException("id must be 0");
