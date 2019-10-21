@@ -21,7 +21,7 @@ public class ProductService {
             throw new IllegalArgumentException("text must contain at least 3 characters");
         }
         List<AbstractProduct> result = new LinkedList<>();
-        for (AbstractProduct item: repository.getAll()) {
+        for (AbstractProduct item : repository.getAll()) {
             if (item.getName().toLowerCase().contains(text.toLowerCase())) {
                 result.add(item);
             }
@@ -32,7 +32,7 @@ public class ProductService {
 
     public List<AbstractProduct> searchByType(String productType) {
         List<AbstractProduct> result = new LinkedList<>();
-        for (AbstractProduct item: repository.getAll()) {
+        for (AbstractProduct item : repository.getAll()) {
             if (item.match(productType)) {
                 result.add(item);
             }
@@ -75,6 +75,10 @@ public class ProductService {
 
     public List<AbstractProduct> getSortedByRating() {
         return getSortedBy((o1, o2) -> o1.getRating() - o2.getRating());
+    }
+
+    public List<AbstractProduct> getSortedByName() {
+        return getSortedBy((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
     }
 
     private List<AbstractProduct> getSortedBy(Comparator<AbstractProduct> comparator) {
