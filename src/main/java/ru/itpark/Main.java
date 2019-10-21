@@ -14,6 +14,7 @@ public class Main {
         final ProductService service = new ProductService(new ProductRepository());
         Collection<AbstractProduct> collection = new LinkedList<>();
         collection.add(new Smartphone("Смартфон Redmi Note 7", 13_990, 4, "blue", 6.3, 32));
+        collection.add(new Smartphone("Смартфон Xiaomi Redmi 7A", 7_990, 0, "black", 5.45, 32));
         collection.add(new Computer("Нереальный компьютер", 200_000, 0, "Эльбрус-4С", 24, "1 ТБ"));
         collection.add(new Computer("Офисный компьютер MXP", 29_990, 0, "Intel Core i3", 8, "1 ТБ"));
         service.add(collection);
@@ -26,6 +27,6 @@ public class Main {
 //        System.out.println(service.searchByType("Computer"));
 //        System.out.println(service.getSortedByPriceDesc());
 //        System.out.println(service.getSortedByRating());
-        System.out.println(service.getSortedByName());
+        System.out.println(service.getSubList(1,3, service.getSortedByPrice()));
     }
 }

@@ -86,4 +86,8 @@ public class ProductService {
         result.sort(comparator);
         return result;
     }
+
+    public List<AbstractProduct> getSubList(int pageNumber, int amountPerPage, List<AbstractProduct> items) {
+        return items.subList((pageNumber - 1) * amountPerPage, Math.min(pageNumber * amountPerPage, items.size()));
+    }
 }
