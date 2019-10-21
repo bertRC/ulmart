@@ -20,7 +20,7 @@ public class Main {
 
         System.out.println(service.getRepository().getAll());
 
-        System.out.println(service.getRepository().delete(2));
+        System.out.println(service.remove(2));
 
         System.out.println(service.getRepository().getAll());
     }

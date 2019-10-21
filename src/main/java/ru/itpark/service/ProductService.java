@@ -37,4 +37,8 @@ public class ProductService {
         Collection<AbstractProduct> products = new LinkedList<>(Arrays.asList(items));
         add(products);
     }
+
+    public boolean remove(int id) {
+        return repository.delete(id);
+    }
 }
