@@ -29,4 +29,9 @@ public class Smartphone extends AbstractProduct {
                 ", memoryInGB=" + memoryInGB +
                 '}';
     }
+
+    @Override
+    public boolean match(String productType) {
+        return productType.toLowerCase().equals("smartphone");
+    }
 }

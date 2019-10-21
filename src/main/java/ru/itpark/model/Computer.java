@@ -29,4 +29,9 @@ public class Computer extends AbstractProduct{
                 ", hdd='" + hdd + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean match(String productType) {
+        return productType.toLowerCase().equals("computer");
+    }
 }
