@@ -10,5 +10,7 @@ public class Main {
         final ProductService service = new ProductService(new ProductRepository());
         service.add(new Smartphone("Смартфон Redmi Note 7", 13_990, 4.0, "blue", 6.3, 32));
         service.add(new Computer("Офисный компьютер MXP", 29_990, 0, "Intel Core i3", 8, "1 ТБ"));
+
+        System.out.println(service.getRepository().getAll());
     }
 }
