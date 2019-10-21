@@ -13,4 +13,8 @@ public class ProductRepository {
         item.setId(nextId++);
         products.add(item);
     }
+
+    public Collection<AbstractProduct> getAll() {
+        return products;
+    }
 }
