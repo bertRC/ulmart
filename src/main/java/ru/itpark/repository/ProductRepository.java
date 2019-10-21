@@ -8,4 +8,9 @@ import java.util.LinkedList;
 public class ProductRepository {
     private final Collection<AbstractProduct> products = new LinkedList<>();
     private long nextId = 1;
+
+    public void save(AbstractProduct item) {
+        item.setId(nextId++);
+        products.add(item);
+    }
 }
