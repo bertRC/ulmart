@@ -64,4 +64,22 @@ public class ProductService {
     public boolean remove(int id) {
         return repository.delete(id);
     }
+
+    public List<AbstractProduct> getSortedByPrice() {
+        return getSortedBy((o1, o2) -> o1.getPrice() - o2.getPrice());
+    }
+
+    public List<AbstractProduct> getSortedByPriceDesc() {
+        return getSortedBy((o1, o2) -> -(o1.getPrice() - o2.getPrice()));
+    }
+
+    public List<AbstractProduct> getSortedByRating() {
+        return getSortedBy((o1, o2) -> o1.getRating() - o2.getRating());
+    }
+
+    private List<AbstractProduct> getSortedBy(Comparator<AbstractProduct> comparator) {
+        List<AbstractProduct> result = new LinkedList<>(repository.getAll());
+        result.sort(comparator);
+        return result;
+    }
 }
