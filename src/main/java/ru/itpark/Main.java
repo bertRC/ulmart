@@ -27,7 +27,7 @@ public class Main {
                 new Pot("Горшок с поддоном MXP", 209, 5, "gray", "25.4 х 19.4 см", 6)
         );
 
-        service.remove(2);
+        System.out.println(service.remove(2));
 
         System.out.println(service.searchByName("MXP"));
         System.out.println();
