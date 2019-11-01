@@ -7,6 +7,9 @@ import java.util.*;
 
 public class ProductService {
     private final ProductRepository repository;
+    public static final int minTextLength = 3;
+    public static final int minRating = 0;
+    public static final int maxRating = 5;
 
     public ProductService(ProductRepository repository) {
         this.repository = repository;
@@ -17,7 +20,7 @@ public class ProductService {
     }
 
     public List<AbstractProduct> searchByName(String text) {
-        if (text.length() < 3) {
+        if (text.length() < minTextLength) {
             throw new IllegalArgumentException("text must contain at least 3 characters");
         }
         List<AbstractProduct> result = new LinkedList<>();
@@ -49,7 +52,7 @@ public class ProductService {
             if (item.getPrice() <= 0) {
                 throw new IllegalArgumentException("price must be greater than 0");
             }
-            if (item.getRating() < 0 || item.getRating() > 5) {
+            if (item.getRating() < minRating || item.getRating() > maxRating) {
                 throw new IllegalArgumentException("rating must be in the range 0 through 5");
             }
             repository.save(item);
