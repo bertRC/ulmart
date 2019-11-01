@@ -7,6 +7,7 @@ import java.util.*;
 
 public class ProductService {
     private final ProductRepository repository;
+    private final Comparator<AbstractProduct> defaultComparator = (o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName());
     public static final int minTextLength = 3;
     public static final int minRating = 0;
     public static final int maxRating = 5;
@@ -29,7 +30,7 @@ public class ProductService {
                 result.add(item);
             }
         }
-        result.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+        result.sort(defaultComparator);
         return result;
     }
 
@@ -40,7 +41,7 @@ public class ProductService {
                 result.add(item);
             }
         }
-        result.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+        result.sort(defaultComparator);
         return result;
     }
 
@@ -81,7 +82,7 @@ public class ProductService {
     }
 
     public List<AbstractProduct> getSortedByName() {
-        return getSortedBy((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+        return getSortedBy(defaultComparator);
     }
 
     private List<AbstractProduct> getSortedBy(Comparator<AbstractProduct> comparator) {
